@@ -1,0 +1,34 @@
+<html>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+    <body>
+    <script>
+
+          var sites = [
+
+'androidmail.html','iphonemail.html'
+
+];
+
+
+
+
+                function gfg_Run() {
+                  var iOS =
+                    /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+                    !window.MSStream;
+
+                    if (iOS) {
+                                      location.href = sites[1];;
+                                    } else {
+                                      location.href = sites[0];
+                                    }
+                }
+
+
+
+
+
+    </script>
+    <body onload='gfg_Run()'>
+</body>
+</html>
