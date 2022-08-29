@@ -49,3 +49,16 @@
     max-width: 100% !important;
     max-height: 100% !important;
   }
+  .fa {
+    padding: 5px;
+    font-size: 15px !important;
+    border-radius: 5%;
+    text-decoration: none;
+    margin: 5px 2px;
+    background: #55ACEE !important;
+    color: white !important;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
