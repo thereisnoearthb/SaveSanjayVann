@@ -63,6 +63,6 @@
     opacity: 0.7;
 }
 #emailInput{
-    color: black;
-    font-size: 15px;
+    color: black !important;
+    font-size: 15px !important;
   }
