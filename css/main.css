@@ -1,75 +1,75 @@
 .page-header {
-    text-align: center;
+  text-align: center;
 }
 
 .gallery-cell {
-    width: 100%;
-    height: 700px;
+  width: 100%;
+  height: 700px;
 }
 
 .gallery-cell:before {
-    display: block;
-    line-height: 200px;
-    font-size: 80px;
-    color: white;
+  display: block;
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
 }
 
 .carousel-wrapper {
-    position: relative;
-    height: 100%;
-    margin: 0 auto;
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .carousel {
-    height: 600px !important;
-    display: inline-block;
-    min-height: 100;
+  height: 600px !important;
+  display: inline-block;
+  min-height: 100;
 }
 
 .carousel-items {
-    display: flex;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
-    height: auto;
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  height: auto;
 }
 
 @media (max-width: 480px) {
-    .carousel {
-        /* height: ; */
-        min-height: 300px !important;
-        max-height: 440px !important;
-    }
+  .carousel {
+    /* height: ; */
+    min-height: 300px !important;
+    max-height: 440px !important;
+  }
 
-    .btn-floating{
-        bottom: -48px !important;
-    }
+  .btn-floating {
+    bottom: -48px !important;
+  }
 }
 .card .card-image img {
-    max-width: 100% !important;
-    max-height: 100% !important;
-  }
-  .fa {
-    padding: 5px;
-    font-size: 15px !important;
-    border-radius: 5%;
-    text-decoration: none;
-    margin: 5px 2px;
-    background: #55ACEE !important;
-    color: white !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+.fa {
+  padding: 5px;
+  font-size: 15px !important;
+  border-radius: 5%;
+  text-decoration: none;
+  margin: 5px 2px;
+  background: #55acee !important;
+  color: white !important;
 }
 
 .fa:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
-#emailInput{
-    color: black !important;
-    font-size: 15px !important;
-  }
-a{
-    color: black !important;
+#emailInput {
+  color: black !important;
+  font-size: 15px !important;
+}
+a {
+  color: black !important;
 }
