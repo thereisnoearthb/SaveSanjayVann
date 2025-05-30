@@ -40,7 +40,7 @@
 
 @media (max-width: 480px) {
     .carousel {
-        height: ;
+        /* height: ; */
         min-height: 300px !important;
         max-height: 440px !important;
     }
