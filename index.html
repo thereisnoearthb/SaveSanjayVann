@@ -31,64 +31,83 @@
 
 
 <body>
-  <div class="page-header">
-    <h2>
-      SAVE SANJAY VAN
-    </h2>
+  <!-- TODO: Update colors -->
+  <div class="title-container">
+    <h1 class="page-title">Save Sanjay Van</h1>
   </div>
 
-  <div id="links">
-    <div class="row container">
-      <div class="">
-        <strong>
-          <div class="yellow card">
-            <div class="card-image large">
-              <div class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <img  src="pictures/sanjayVann1.jpeg"
-                            alt="Sanjay Vann image" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                      <img  src="pictures/sanjayVann2.jpeg"
-                            alt="Sanjay Vann image" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                      <img  src="pictures/sanjayVann3.jpeg"
-                            alt="Sanjay Vann Image" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                      <img  src="pictures/sanjayVann4.jpeg"
-                            alt="Sanjay Vann Image" loading="lazy">
-                    </div>
-                </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-pagination"></div>
-              </div>
+  <div class="campaign-card">
+    <!-- Swiper Carousel -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img  src="pictures/sanjayVann1.jpeg"
+                alt="Sanjay Vann image" loading="lazy">
+        </div>
+        <div class="swiper-slide">
+          <img  src="pictures/sanjayVann2.jpeg"
+                alt="Sanjay Vann image" loading="lazy">
+        </div>
+        <div class="swiper-slide">
+          <img  src="pictures/sanjayVann3.jpeg"
+                alt="Sanjay Vann Image" loading="lazy">
+        </div>
+        <div class="swiper-slide">
+          <img  src="pictures/sanjayVann4.jpeg"
+                alt="Sanjay Vann Image" loading="lazy">
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
 
-              <a  href="mail.html" target="_blank"
-                  class="btn-floating halfway-fab waves-effect waves-light btn-large red pulse">
-                  <i class="large material-icons">forward_to_inbox</i>
-              </a>
-            </div>
+    <!-- Card Content -->
+    <div class="card-content">
+      <div class="card-text">
+        <p>
+          A Citizens' appeal to withdraw the Tender Notification issued by Delhi Development Authority to convert
+          the Sanjay Van area as an Eco-Tourism Hub. Delhi Development Authority is planning to utilize the forest
+          area for recreational purposes.
+        </p>
+        <br>
+        <p>
+          <!-- TODO: Fix Email Input Display -->
+          <label id="emailInput"></label> people have sent the email so far ✊
+        </p>
+      </div>
+    </div>
 
-            <div class="card-content">
-              <p>
-                A Citizens' appeal to withdraw the Tender Notification issued by Delhi Development Authority to convert
-                the Sanjay Van area as an Eco-Tourism Hub. Delhi Development Authority is planning to utilize the forest
-                area for recreational purposes.
-              </p>
-              <p>
-                <label id="emailInput"></label> people have sent the email so far ✊
-              </p>
-              <br>
-              <p>Also, Tweet to spread the word.</p>
-                <a id="tweet-quote" target="_blank" class='fa fa-twitter' title="Tweet this Quote!">
-                  Tweet!
-                </a>
-            </div>
-          </div>
+    <!-- Social Buttons -->
+    <div class="social-buttons">
+      <a href="https://savesanjayvann.thereisnoearthb.com/mail.html"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="Email Button">
+          <img src="https://pudhe-chala.thereisnoearthb.com/assets/email-icon.svg" alt="Email icon" />
+      </a>
+      
+      <a href="https://x.com/ThereIsNoEarthB"
+          class="x-btn"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="X Button">
+          <img src="https://pudhe-chala.thereisnoearthb.com/assets/x-icon.svg" alt="X icon" />
+      </a>
+
+      <a  href="https://www.instagram.com/pudhe_chala/"
+          class="instagram-btn"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram Button">
+          <img src="https://pudhe-chala.thereisnoearthb.com/assets/instagram-icon.svg" alt="Instagram icon" />
+      </a>
+          
+      <a  href="https://chat.whatsapp.com/Jv7cQ2spyKaD1D4qo4q55y"
+          class="whatsapp-btn"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="WhatsApp Button">
+          <img src="https://pudhe-chala.thereisnoearthb.com/assets/whatsapp-icon.svg" alt="WhatsApp icon" />
+      </a>
+    </div>
+  </div>
 
           <div class="video-container">
             <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/GR-rm5FC8IA" frameborder="0"
