@@ -1,75 +1,236 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  text-align: justify;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  /* padding: 20px; */
+  /* padding-top: 40px; */
+}
+
+/* Container for the logo with shadow */
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
 .page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* Page header element now acts similarly to a fixed navbar */
+  position: fixed;
+  z-index: 99;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for page titles */
+.title-container {
+  width: 100%;
+  max-width: 314px;
+  /* padding-top: 80px; */
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-family: "Sulphur Point", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1;
+  color: #42367d;
+  text-align: center;
+  margin-top: 0.7em;
+  margin-bottom: 0.25em; /* Space between title and subtitle */
+}
+
+.page-subtitle {
+  font-family: "Sulphur Point";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #42367d;
+}
+
+/* Card Styles */
+.campaign-card {
+  background-color: #fff;
+  border-radius: 16px;
+  /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); */
+  width: 100%;
+  max-width: 314px;
+  overflow: hidden;
+  /* Override */
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 13px;
+  padding: 30px 29.5px 25px 29.5px;
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+
+/* Carousel Styles */
+.swiper {
+  border-radius: 16px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Card Content Styles */
+.card-content {
+  padding: 0.5rem 0;
+}
+
+.card-text {
+  margin: 10px 0;
+  font-size: 12px;
+  /* line-height: 1.6; */
+}
+
+/* Social Button Styles */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  /* padding: 15px 0; */
+}
+
+.social-icon:hover .social-button {
+  fill: #ff4e4e; /* Change fill color on hover */
+}
+
+.social-button:hover {
+  fill: #ff4e4e;
+}
+
+/* Link Buttons */
+.link-button {
+  display: block;
+  width: 100%;
+  max-width: 314px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  border: 1px solid #000000;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.link-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#link-button-wrapper {
+  width: 100%;
+  max-width: 314px;
+}
+
+.swiper-pagination-bullet {
+  display: inline-block;
+  border: 1px solid #ffd900;
+  background: none;
+  opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.9);
+}
+.swiper-pagination-bullet-active {
+  background: #ffd900 !important;
+}
+
+/* Swiper left and right button styling */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 25px; /* Size of the circular button */
+  height: 25px;
+  background-color: #ffd900;
+  border-radius: 50%; /* Circular shape */
+}
+
+/* Arrow within the button */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px; /* Adjust arrow icon size */
+  font-weight: bold;
+  color: black;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: #ccad00; /* Darker red on hover */
+}
+
+/* Translate Button Styling */
+#google_translate_element {
   text-align: center;
 }
 
-.gallery-cell {
+.translate-disclaimer {
+  font-size: 0.8rem;
+  color: #6c757d;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  max-width: 314px;
+}
+
+/* Scroll to Top Button Styles */
+/* Mobile device styling */
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 1.25rem;
+  right: calc(50% - 180px);
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #ffd900;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+/* Styles for Desktop (e.g., screens wider than 768px) */
+@media (min-width: 768px) {
+  #scrollTopBtn {
+    /* Override properties for desktop */
+    bottom: 3rem;
+    right: 3rem;
+  }
+}
+
+#scrollTopBtn img {
   width: 100%;
-  height: 700px;
-}
-
-.gallery-cell:before {
-  display: block;
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
-}
-
-.carousel-wrapper {
-  position: relative;
   height: 100%;
-  margin: 0 auto;
+  display: block;
+  margin: auto;
 }
 
-.carousel {
-  height: 600px !important;
-  display: inline-block;
-  min-height: 100;
-}
-
-.carousel-items {
-  display: flex;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-  height: auto;
-}
-
-@media (max-width: 480px) {
-  .carousel {
-    /* height: ; */
-    min-height: 300px !important;
-    max-height: 440px !important;
-  }
-
-  .btn-floating {
-    bottom: -48px !important;
-  }
-}
-.card .card-image img {
-  max-width: 100% !important;
-  max-height: 100% !important;
-}
-.fa {
-  padding: 5px;
-  font-size: 15px !important;
-  border-radius: 5%;
-  text-decoration: none;
-  margin: 5px 2px;
-  background: #55acee !important;
-  color: white !important;
-}
-
-.fa:hover {
-  opacity: 0.7;
-}
-#emailInput {
-  color: black !important;
-  font-size: 15px !important;
-}
-a {
-  color: black !important;
+#scrollTopBtn:hover {
+  background-color: #ccad00;
 }
