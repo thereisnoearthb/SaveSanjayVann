@@ -224,6 +224,10 @@ body {
   }
 }
 
+.instagram-filter {
+  width: 100%;
+}
+
 #scrollTopBtn img {
   width: 100%;
   height: 100%;
