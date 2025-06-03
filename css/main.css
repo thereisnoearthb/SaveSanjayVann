@@ -14,8 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  /* padding: 20px; */
-  /* padding-top: 40px; */
+  padding-bottom: 80px; /* Prevents content overlap by fixed footer */
 }
 
 /* Container for the logo with shadow */
@@ -241,11 +240,14 @@ body {
 
 /* Footer Styles */
 footer {
+  position: fixed;
+  bottom: 0;       /* Stick to the bottom */
+  left: 0;         /* Align to the left */
+  width: 100%;     /* Span full width */
   background-color: #fdfaea;
   padding: 20px 15px;
-  margin-top: auto;
-  width: 100%;
   border-top: 1px solid #e0e0e0;
+  z-index: 100;
 }
 
 .footer-content-wrapper {
