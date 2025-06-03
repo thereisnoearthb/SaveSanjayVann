@@ -80,7 +80,7 @@ body {
   max-width: 314px;
   overflow: hidden;
   /* Override */
-  background: #ffffff;
+  background-color: #ffffff;
   border: 1px solid #000000;
   border-radius: 13px;
   padding: 30px 29.5px 25px 29.5px;
