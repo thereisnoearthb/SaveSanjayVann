@@ -61,7 +61,7 @@ body {
 }
 
 .page-subtitle {
-  font-family: "Sulphur Point";
+  font-family: "Sulphur Point", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 1.2rem;
