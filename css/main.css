@@ -154,12 +154,12 @@ body {
 
 .swiper-pagination-bullet {
   display: inline-block;
-  border: 1px solid #ffd900;
+  border: 1px solid #3A6ADA;
   background: none;
   opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.9);
 }
 .swiper-pagination-bullet-active {
-  background: #ffd900 !important;
+  background: #173b91 !important;
 }
 
 /* Swiper left and right button styling */
@@ -167,7 +167,7 @@ body {
 .swiper-button-prev {
   width: 25px; /* Size of the circular button */
   height: 25px;
-  background-color: #ffd900;
+  background-color: #3A6ADA;
   border-radius: 50%; /* Circular shape */
 }
 
@@ -181,7 +181,7 @@ body {
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background-color: #ccad00; /* Darker red on hover */
+  background-color: #173b91; /* Darker red on hover */
 }
 
 /* Translate Button Styling */
