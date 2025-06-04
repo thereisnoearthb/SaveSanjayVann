@@ -27,11 +27,299 @@
   <!-- Swiper CSS for Carousel -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 
-  <!-- TINEB Stylesheet -->
-  <link rel="stylesheet" href="css/main.css">
+
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TINEB Stylesheet -->
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 400;
+      text-align: justify;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding-bottom: 80px;
+      /* Prevents content overlap by fixed footer */
+    }
+
+    /* Container for the logo with shadow */
+    .logo-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      /* Page header element now acts similarly to a fixed navbar */
+      position: fixed;
+      z-index: 99;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Container for page titles */
+    .title-container {
+      width: 100%;
+      max-width: 314px;
+      /* padding-top: 80px; */
+      margin-bottom: 20px;
+    }
+
+    .page-title {
+      font-family: "Sulphur Point", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1;
+      color: #42367d;
+      text-align: center;
+      margin-top: 0.7em;
+      margin-bottom: 0.25em;
+      /* Space between title and subtitle */
+    }
+
+    .page-subtitle {
+      font-family: "Sulphur Point", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1;
+      text-align: center;
+      letter-spacing: -0.01em;
+      color: #42367d;
+    }
+
+    /* Card Styles */
+    .campaign-card {
+      background-color: #fff;
+      border-radius: 16px;
+      /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); */
+      width: 100%;
+      max-width: 314px;
+      overflow: hidden;
+      /* Override */
+      background-color: #ffffff;
+      border: 1px solid #000000;
+      border-radius: 13px;
+      padding: 30px 29.5px 25px 29.5px;
+      position: relative;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Carousel Styles */
+    .swiper {
+      border-radius: 16px;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* Card Content Styles */
+    .card-content {
+      padding: 0.5rem 0;
+    }
+
+    .card-text {
+      margin: 10px 0;
+      font-size: 12px;
+      /* line-height: 1.6; */
+    }
+
+    /* Social Button Styles */
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      /* padding: 15px 0; */
+    }
+
+    .social-icon:hover .social-button {
+      fill: #ff4e4e;
+      /* Change fill color on hover */
+    }
+
+    .social-button:hover {
+      fill: #ff4e4e;
+    }
+
+    /* Link Buttons */
+    .link-button {
+      display: block;
+      width: 100%;
+      max-width: 314px;
+      background-color: white;
+      color: black;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+      border: 1px solid #000000;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .link-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    #link-button-wrapper {
+      width: 100%;
+      max-width: 314px;
+    }
+
+    .swiper-pagination-bullet {
+      display: inline-block;
+      border: 1px solid #3A6ADA;
+      background: none;
+      opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.9);
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #173b91 !important;
+    }
+
+    /* Swiper left and right button styling */
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 25px;
+      /* Size of the circular button */
+      height: 25px;
+      background-color: #3A6ADA;
+      border-radius: 50%;
+      /* Circular shape */
+    }
+
+    /* Arrow within the button */
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 16px;
+      /* Adjust arrow icon size */
+      font-weight: bold;
+      color: black;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background-color: #173b91;
+      /* Darker red on hover */
+    }
+
+    /* Translate Button Styling */
+    #google_translate_element {
+      text-align: center;
+    }
+
+    .translate-disclaimer {
+      font-size: 0.8rem;
+      color: #6c757d;
+      text-align: center;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      max-width: 314px;
+    }
+
+    /* Scroll to Top Button Styles */
+    /* Mobile device styling */
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 1.25rem;
+      right: calc(50% - 180px);
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #ffd900;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+    }
+
+    /* Styles for Desktop (e.g., screens wider than 768px) */
+    @media (min-width: 768px) {
+      #scrollTopBtn {
+        /* Override properties for desktop */
+        bottom: 3rem;
+        right: 3rem;
+      }
+    }
+
+    .instagram-filter {
+      width: 100%;
+    }
+
+    #scrollTopBtn img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      margin: auto;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: #ccad00;
+    }
+
+    /* Footer Styles */
+    footer {
+      position: fixed;
+      bottom: 0;
+      /* Stick to the bottom */
+      left: 0;
+      /* Align to the left */
+      width: 100%;
+      /* Span full width */
+      background-color: #fdfaea;
+      padding: 20px 15px;
+      border-top: 1px solid #e0e0e0;
+      z-index: 100;
+    }
+
+    .footer-content-wrapper {
+      max-width: 700px;
+      /* Constrain content width for readability */
+      margin: 0 auto;
+      /* Center the wrapper */
+      text-align: center;
+    }
+
+    .footer-text {
+      font-size: 0.875rem;
+      color: #333;
+    }
+
+    .footer-text a {
+      color: #42367d;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 
@@ -134,113 +422,62 @@
       target="_blank">Air Quality of Delhi
     </a>
 
-    <a class="link-button" href="https://www.instagram.com/p/BwSEQRTncrH/?" target="_blank">Cleanup
-      post 1</a>
-    <a class="link-button" href="https://www.instagram.com/p/Bw2NonBHs6e/?" target="_blank">Cleanup
-      post 2</a>
-    <a class="link-button" href="https://www.instagram.com/p/BzqS6JMnY4V/?" target="_blank">Cleanup
-      post 3</a>
-    <a class="link-button" href="https://www.instagram.com/p/Bz8XMein8w7/?" target="_blank">Cleanup
-      post 4</a>
-    <a class="link-button" href="https://www.instagram.com/p/B0TJeIeHKS2/?" target="_blank">Cleanup
-      post 5</a>
-    <a class="link-button" href="https://www.instagram.com/p/B0i3lxmHnEI/?" target="_blank">Cleanup
-      post 6</a>
-    <a class="link-button" href="https://www.instagram.com/p/B00kg1WHs34/?" target="_blank">Cleanup
-      post 7</a>
-    <a class="link-button" href="https://www.instagram.com/p/B1Gwb5THfjJ/?" target="_blank">Cleanup
-      post 8</a>
-    <a class="link-button" href="https://www.instagram.com/p/B1qXNV7H_1S/?" target="_blank">Cleanup
-      post 9</a>
-    <a class="link-button" href="https://www.instagram.com/p/B16ERwvn7ff/?" target="_blank">Cleanup
-      post 10</a>
-    <a class="link-button" href="https://www.instagram.com/p/B2ea9aTHpFn/?" target="_blank">Cleanup
-      post 11</a>
-    <a class="link-button" href="https://www.instagram.com/p/B20d0Ernrkn/?" target="_blank">Cleanup
-      post 12</a>
-    <a class="link-button" href="https://www.instagram.com/p/B3JJpfxnVMt/?" target="_blank">Cleanup
-      post 13</a>
-    <a class="link-button" href="https://www.instagram.com/p/B3W9eN7nK3G/?" target="_blank">Cleanup
-      post 14</a>
-    <a class="link-button" href="https://www.instagram.com/p/B3pKZX7Hveb/?" target="_blank">Cleanup
-      post 15</a>
-    <a class="link-button" href="https://www.instagram.com/p/B4AZMFtnTcn/?" target="_blank">Cleanup
-      post 16</a>
-    <a class="link-button" href="https://www.instagram.com/p/B4kcTYBH9EI/?" target="_blank">Cleanup
-      post 17</a>
-    <a class="link-button" href="https://www.instagram.com/p/B4urbGJnmks/?" target="_blank">Cleanup
-      post 18</a>
-    <a class="link-button" href="https://www.instagram.com/p/B5Fz2MWnkf-/?" target="_blank">Cleanup
-      post 19</a>
-    <a class="link-button" href="https://www.instagram.com/p/B5UPZcDHT6E/?" target="_blank">Cleanup
-      post 20</a>
-    <a class="link-button" href="https://www.instagram.com/p/B544J9TnmOE/?" target="_blank">Cleanup
-      post 21</a>
-    <a class="link-button" href="https://www.instagram.com/p/B6sZqaRH3fJ/?" target="_blank">Cleanup
-      post 22</a>
-    <a class="link-button" href="https://www.instagram.com/p/B7Bgdr0HXsq/?" target="_blank">Cleanup
-      post 23</a>
-    <a class="link-button" href="https://www.instagram.com/p/B7QLTBQnDV9/?" target="_blank">Cleanup
-      post 24</a>
-    <a class="link-button" href="https://www.instagram.com/p/B7lbXYCn6a2/?" target="_blank">Cleanup
-      post 25</a>
-    <a class="link-button" href="https://www.instagram.com/p/B71CTK7nNwO/?" target="_blank">Cleanup
-      post 26</a>
-    <a class="link-button" href="https://www.instagram.com/p/B8F73nkHcvj/?" target="_blank">Cleanup
-      post 27</a>
-    <a class="link-button" href="https://www.instagram.com/p/B8ZI1pvHTtX/?" target="_blank">Cleanup
-      post 28</a>
-    <a class="link-button" href="https://www.instagram.com/p/B8tCx6EnTZ1/?" target="_blank">Cleanup
-      post 29</a>
-    <a class="link-button" href="https://www.instagram.com/p/B9Q008JHTyj/?" target="_blank">Cleanup
-      post 30</a>
-    <a class="link-button" href="https://www.instagram.com/p/B9hCWU5HKuP/?" target="_blank">Cleanup
-      post 31</a>
-    <a class="link-button" href="https://www.instagram.com/p/B96rcqSH8RE/?" target="_blank">Cleanup
-      post 32</a>
-    <a class="link-button" href="https://www.instagram.com/p/CKHGlXZlgAf/?" target="_blank">Cleanup
-      post 33</a>
-    <a class="link-button" href="https://www.instagram.com/p/CKeRrsOo9-q/?" target="_blank">Cleanup
-      post 34</a>
-    <a class="link-button" href="https://www.instagram.com/p/CKl_9XXJO3y/?" target="_blank">Cleanup
-      post 35</a>
-    <a class="link-button" href="https://www.instagram.com/p/CK6mWsOHYmi/?" target="_blank">Cleanup
-      post 36</a>
-    <a class="link-button" href="https://www.instagram.com/p/CLeijAkJ1Zx/?" target="_blank">Cleanup
-      post 37</a>
-    <a class="link-button" href="https://www.instagram.com/p/CMCqQMEoYpd/?" target="_blank">Cleanup
-      post 38</a>
-    <a class="link-button" href="https://www.instagram.com/p/CMNBoiYlPNB/?" target="_blank">Cleanup
-      post 39</a>
-    <a class="link-button" href="https://www.instagram.com/p/CMWS_YKl_SF/?" target="_blank">Cleanup
-      post 40</a>
-    <a class="link-button" href="https://www.instagram.com/p/CMZ7DfwlRvJ/?" target="_blank">Cleanup
-      post 41</a>
-    <a class="link-button" href="https://www.instagram.com/p/CM3-9AMINYr/?" target="_blank">Cleanup
-      post 42</a>
-    <a class="link-button" href="https://www.instagram.com/p/CNMjpmvpHBJ/?" target="_blank">Cleanup
-      post 43</a>
-    <a class="link-button" href="https://www.instagram.com/p/CNXMOqVoyRa/?" target="_blank">Cleanup
-      post 44</a>
-    <a class="link-button" href="https://www.instagram.com/p/CSJNWNzjqVv/?" target="_blank">Cleanup
-      post 45</a>
-    <a class="link-button" href="https://www.instagram.com/p/CSi38epJlm9/?" target="_blank">Cleanup
-      post 46</a>
-    <a class="link-button" href="https://www.instagram.com/p/CSljLBPJTBr/?" target="_blank">Cleanup
-      post 47</a>
-    <a class="link-button" href="https://www.instagram.com/p/CS1e4TuDXmx/?" target="_blank">Cleanup
-      post 48</a>
+    <a class="link-button" href="https://www.instagram.com/p/BwSEQRTncrH/?" target="_blank">Cleanup post 1</a>
+    <a class="link-button" href="https://www.instagram.com/p/Bw2NonBHs6e/?" target="_blank">Cleanup post 2</a>
+    <a class="link-button" href="https://www.instagram.com/p/BzqS6JMnY4V/?" target="_blank">Cleanup post 3</a>
+    <a class="link-button" href="https://www.instagram.com/p/Bz8XMein8w7/?" target="_blank">Cleanup post 4</a>
+    <a class="link-button" href="https://www.instagram.com/p/B0TJeIeHKS2/?" target="_blank">Cleanup post 5</a>
+    <a class="link-button" href="https://www.instagram.com/p/B0i3lxmHnEI/?" target="_blank">Cleanup post 6</a>
+    <a class="link-button" href="https://www.instagram.com/p/B00kg1WHs34/?" target="_blank">Cleanup post 7</a>
+    <a class="link-button" href="https://www.instagram.com/p/B1Gwb5THfjJ/?" target="_blank">Cleanup post 8</a>
+    <a class="link-button" href="https://www.instagram.com/p/B1qXNV7H_1S/?" target="_blank">Cleanup post 9</a>
+    <a class="link-button" href="https://www.instagram.com/p/B16ERwvn7ff/?" target="_blank">Cleanup post 10</a>
+    <a class="link-button" href="https://www.instagram.com/p/B2ea9aTHpFn/?" target="_blank">Cleanup post 11</a>
+    <a class="link-button" href="https://www.instagram.com/p/B20d0Ernrkn/?" target="_blank">Cleanup post 12</a>
+    <a class="link-button" href="https://www.instagram.com/p/B3JJpfxnVMt/?" target="_blank">Cleanup post 13</a>
+    <a class="link-button" href="https://www.instagram.com/p/B3W9eN7nK3G/?" target="_blank">Cleanup post 14</a>
+    <a class="link-button" href="https://www.instagram.com/p/B3pKZX7Hveb/?" target="_blank">Cleanup post 15</a>
+    <a class="link-button" href="https://www.instagram.com/p/B4AZMFtnTcn/?" target="_blank">Cleanup post 16</a>
+    <a class="link-button" href="https://www.instagram.com/p/B4kcTYBH9EI/?" target="_blank">Cleanup post 17</a>
+    <a class="link-button" href="https://www.instagram.com/p/B4urbGJnmks/?" target="_blank">Cleanup post 18</a>
+    <a class="link-button" href="https://www.instagram.com/p/B5Fz2MWnkf-/?" target="_blank">Cleanup post 19</a>
+    <a class="link-button" href="https://www.instagram.com/p/B5UPZcDHT6E/?" target="_blank">Cleanup post 20</a>
+    <a class="link-button" href="https://www.instagram.com/p/B544J9TnmOE/?" target="_blank">Cleanup post 21</a>
+    <a class="link-button" href="https://www.instagram.com/p/B6sZqaRH3fJ/?" target="_blank">Cleanup post 22</a>
+    <a class="link-button" href="https://www.instagram.com/p/B7Bgdr0HXsq/?" target="_blank">Cleanup post 23</a>
+    <a class="link-button" href="https://www.instagram.com/p/B7QLTBQnDV9/?" target="_blank">Cleanup post 24</a>
+    <a class="link-button" href="https://www.instagram.com/p/B7lbXYCn6a2/?" target="_blank">Cleanup post 25</a>
+    <a class="link-button" href="https://www.instagram.com/p/B71CTK7nNwO/?" target="_blank">Cleanup post 26</a>
+    <a class="link-button" href="https://www.instagram.com/p/B8F73nkHcvj/?" target="_blank">Cleanup post 27</a>
+    <a class="link-button" href="https://www.instagram.com/p/B8ZI1pvHTtX/?" target="_blank">Cleanup post 28</a>
+    <a class="link-button" href="https://www.instagram.com/p/B8tCx6EnTZ1/?" target="_blank">Cleanup post 29</a>
+    <a class="link-button" href="https://www.instagram.com/p/B9Q008JHTyj/?" target="_blank">Cleanup post 30</a>
+    <a class="link-button" href="https://www.instagram.com/p/B9hCWU5HKuP/?" target="_blank">Cleanup post 31</a>
+    <a class="link-button" href="https://www.instagram.com/p/B96rcqSH8RE/?" target="_blank">Cleanup post 32</a>
+    <a class="link-button" href="https://www.instagram.com/p/CKHGlXZlgAf/?" target="_blank">Cleanup post 33</a>
+    <a class="link-button" href="https://www.instagram.com/p/CKeRrsOo9-q/?" target="_blank">Cleanup post 34</a>
+    <a class="link-button" href="https://www.instagram.com/p/CKl_9XXJO3y/?" target="_blank">Cleanup post 35</a>
+    <a class="link-button" href="https://www.instagram.com/p/CK6mWsOHYmi/?" target="_blank">Cleanup post 36</a>
+    <a class="link-button" href="https://www.instagram.com/p/CLeijAkJ1Zx/?" target="_blank">Cleanup post 37</a>
+    <a class="link-button" href="https://www.instagram.com/p/CMCqQMEoYpd/?" target="_blank">Cleanup post 38</a>
+    <a class="link-button" href="https://www.instagram.com/p/CMNBoiYlPNB/?" target="_blank">Cleanup post 39</a>
+    <a class="link-button" href="https://www.instagram.com/p/CMWS_YKl_SF/?" target="_blank">Cleanup post 40</a>
+    <a class="link-button" href="https://www.instagram.com/p/CMZ7DfwlRvJ/?" target="_blank">Cleanup post 41</a>
+    <a class="link-button" href="https://www.instagram.com/p/CM3-9AMINYr/?" target="_blank">Cleanup post 42</a>
+    <a class="link-button" href="https://www.instagram.com/p/CNMjpmvpHBJ/?" target="_blank">Cleanup post 43</a>
+    <a class="link-button" href="https://www.instagram.com/p/CNXMOqVoyRa/?" target="_blank">Cleanup post 44</a>
+    <a class="link-button" href="https://www.instagram.com/p/CSJNWNzjqVv/?" target="_blank">Cleanup post 45</a>
+    <a class="link-button" href="https://www.instagram.com/p/CSi38epJlm9/?" target="_blank">Cleanup post 46</a>
+    <a class="link-button" href="https://www.instagram.com/p/CSljLBPJTBr/?" target="_blank">Cleanup post 47</a>
+    <a class="link-button" href="https://www.instagram.com/p/CS1e4TuDXmx/?" target="_blank">Cleanup post 48</a>
     <a class="link-button" href="https://www.instagram.com/reel/CS3QJ8MJCBx/?" target="_blank">Cleanup post 49</a>
     <a class="link-button" href="https://www.instagram.com/reel/CS3RCzoJxSx/?" target="_blank">Cleanup post 50</a>
     <a class="link-button" href="https://www.instagram.com/reel/CS3SBsep-Ed/?" target="_blank">Cleanup post 51</a>
-    <a class="link-button" href="https://www.instagram.com/p/CS9cksapGL4/?" target="_blank">Cleanup
-      post 52</a>
+    <a class="link-button" href="https://www.instagram.com/p/CS9cksapGL4/?" target="_blank">Cleanup post 52</a>
     <a class="link-button" href="https://www.instagram.com/reel/CTJesVjD4XP/?" target="_blank">Cleanup post 53</a>
-    <a class="link-button" href="https://www.instagram.com/p/CTSMZpcIAQs/?" target="_blank">Cleanup
-      post 54</a>
+    <a class="link-button" href="https://www.instagram.com/p/CTSMZpcIAQs/?" target="_blank">Cleanup post 54</a>
     <a class="link-button" href="https://www.instagram.com/reel/CTb8nOpn8Zh/?" target="_blank">Cleanup post 55</a>
-    <a class="link-button" href="https://www.instagram.com/p/CUNaCQ2rvYA/?" target="_blank">Cleanup
-      post 56</a>
+    <a class="link-button" href="https://www.instagram.com/p/CUNaCQ2rvYA/?" target="_blank">Cleanup post 56</a>
   </div>
 
   <footer>
