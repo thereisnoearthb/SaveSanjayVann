@@ -121,11 +121,13 @@
       padding: 30px 29.5px 25px 29.5px;
       position: relative;
       margin-bottom: 1.2rem;
+      overflow: visible; /* Allow nav buttons to be positioned outside its bounds */
     }
 
     /* Carousel Styles */
     .swiper {
       border-radius: 16px;
+      overflow: visible; /* Allow nav buttons to be positioned outside its bounds */
     }
 
     .swiper-slide img {
@@ -212,9 +214,15 @@
       width: 25px;
       /* Size of the circular button */
       height: 25px;
-      background-color: #3A6ADA;
+      background-color: #2e4989;
       border-radius: 50%;
-      /* Circular shape */
+    }
+
+    .swiper-button-prev {
+      left: -43px;
+    }
+    .swiper-button-next {
+      right: -43px;
     }
 
     /* Arrow within the button */
@@ -223,7 +231,7 @@
       font-size: 16px;
       /* Adjust arrow icon size */
       font-weight: bold;
-      color: black;
+      color: white;
     }
 
     .swiper-button-next:hover,
