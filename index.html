@@ -237,7 +237,7 @@
     #scrollTopBtn {
       display: none;
       position: fixed;
-      bottom: 1.25rem;
+      bottom: 6.5rem;
       right: calc(50% - 180px);
       z-index: 99;
       border: none;
@@ -252,7 +252,7 @@
     @media (min-width: 768px) {
       #scrollTopBtn {
         /* Override properties for desktop */
-        bottom: 3rem;
+        bottom: 6rem;
         right: 3rem;
       }
     }
@@ -532,6 +532,11 @@
     <a class="link-button" href="https://www.instagram.com/p/CUNaCQ2rvYA/?" target="_blank">Cleanup post 56</a>
   </div>
 
+  <!-- Scroll to top -->
+  <button id="scrollTopBtn" title="Go to top" type="button">
+    <img src="assets/scrollUp-icon.svg" alt="Scroll to top">
+  </button>
+
   <footer>
     <div class="footer-content-wrapper">
       <div class="footer-text">
@@ -566,6 +571,25 @@
           enabled: true
         }
       });
+    });
+  </script>
+
+  <!-- Scroll to top button -->
+  <script>
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function () { scrollFunction() };
+
+    // Button appears only after scrolling down by 20px
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    }
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 
