@@ -152,16 +152,28 @@
       display: flex;
       justify-content: center;
       gap: 15px;
-      /* padding: 15px 0; */
     }
 
-    .social-icon:hover .social-button {
-      fill: #ff4e4e;
-      /* Change fill color on hover */
+    .social-btn {
+      background-color: #2e4989;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .social-button:hover {
-      fill: #ff4e4e;
+    .social-btn:hover {
+      background-color: #1c2d55; /* Darker blue on hover */
+      box-shadow: 0 4px 8px darkgrey; /* Adds a shadow on hover */
+    }
+
+    .social-btn img {
+      width: 50%;
+      height: 50%;
+      display: block; /* Ensures the image behaves as a block element */
+      object-fit: contain; /* Maintains aspect ratio */
     }
 
     .section-heading {
