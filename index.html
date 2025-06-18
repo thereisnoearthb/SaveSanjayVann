@@ -208,12 +208,16 @@
     }
 
     .swiper-pagination-bullet {
-      display: inline-block;
-      border: 1px solid #3A6ADA;
-      background: none;
-      opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.9);
+      /* Manually setting the sizes of the bullets */
+      width: 6px; 
+      height: 6px;
+      /* Manually adjusting the position of the bullets */
       position: relative;
       top: 20px;
+      display: inline-block;
+      border: 1px solid #5385fb;
+      background: none;
+      opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.9);
     }
 
     .swiper-pagination-bullet-active {
