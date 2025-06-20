@@ -1,27 +1,318 @@
 <!DOCTYPE html>
-<html>
-
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Petition</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <style>
+      body { background-color: white; color: black; padding-top: 1rem; padding-bottom: 1rem; }
+      .container { max-width: 800px; }
+      .btn-custom-primary { background-color: #2e4989; border-color: #2e4989; color: white; }
+      .btn-custom-primary:hover, .btn-custom-primary:focus { background-color: #1e3a75; border-color: #1e3a75; color: white; }
+      .btn-custom-secondary { background-color: #dfd3b9; border-color: #dfd3b9; color: black; }
+      .btn-custom-secondary:hover, .btn-custom-secondary:focus { background-color: #c9bfa5; border-color: #c9bfa5; color: black; }
+      .btn.disabled, .btn:disabled, fieldset:disabled .btn { pointer-events: none; opacity: 0.65; }
+      .email-preview { background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1.5rem; margin-top: 1rem; border-radius: 0.375rem; white-space: pre-wrap; word-wrap: break-word; font-family: monospace; max-height: 50vh; overflow-y: auto; }
+      h5, h6 { color: #2e4989; }
+      #email-details p { margin-bottom: 0.5rem; word-wrap: break-word; }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <h5 class="mb-3 text-center">Email Preview</h5>
+      <!-- <p class="text-center text-muted small">Hover over "Send Mail" to see the link. If your email app doesn't open correctly, please use the copy button.</p>
+      <div class="text-center mb-4">
+        <a id="send" href="#" target="_blank" class="btn btn-custom-primary btn-lg me-2 disabled" role="button" title="Generating link...">
+          <i class="bi bi-send"></i> Send Mail
+        </a>
+        <button id="copy" class="btn btn-custom-secondary me-2" type="button">
+          <i class="bi bi-clipboard"></i> Copy Email Content
+        </button>
+      </div> -->
+      <h6>Email Details:</h6>
+      <div id="email-details" class="mb-3">
+        <p><strong>To:</strong> <span id="preview-to">(Generating...)</span></p>
+        <p id="cc-line" style="display: none;"><strong>Cc:</strong> <span id="preview-cc"></span></p>
+        <p id="bcc-line" style="display: none;"><strong>Bcc:</strong> <span id="preview-bcc"></span></p>
+        <p><strong>Subject:</strong> <span id="preview-subject">(Generating...)</span></p>
+      </div>
+      <h6>Email Body Preview:</h6>
+      <div id="email-preview" class="email-preview">(Generating...)</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-      (() => {
-        const sites = [
-          'androidmail.html', 'iphonemail.html'
-        ];
+      // --- Embedded Mail Generation Script START ---
+      
+      const TO_ADDRESS = "lggc.delhi@nic.in,cmdelhi@nic.in";
+      const CC_ADDRESS = "vcdda@dda.org.in,msisodia.delhi@gov.in";
+      const BCC_ADDRESS = "solidarity@thereisnoearthb.com";
+      const SUBJECT_LINES = ["Appeal to stop the commercialization of Sanjay Van"];
+      const PARA1_OPTIONS = ["To,\n\nSh. Vinai Kumar Saxena\nLt. Governor of GNCT, Delhi & DDA Chairperson\n6, Raj Niwas Marg, Ludlow Castle, \nCivil Lines, New Delhi – 110054\n\nAND\n\nShri Arvind Kejriwal,\nHon’ble Chief Minister,\nGovt of NCT, Delhi.\n\nSub: Appeal to stop the commercialization of Sanjay Van"];
+      const PARA2_OPTIONS = ["This email is in reference to citizens’ appeal to withdraw the Tender Notification issued by Delhi Development Authority to convert the Sanjay Vann area into an Eco-Tourism Hub. Delhi Development Authority (hereinafter referred to as “DDA”) is planning to utilize the forest area for recreational purposes such as rock climbing, paragliding, aerial trails (canopy tours, ziplines, valley crossing, Burma bridge crossing), forest safari, leisure cycling, camping, and picnic spots, star gazing, bird watching, guided nature tours, and flora and fauna observation trips among other activities. Further, the construction activities of the forest as directed by LG to officials, is detrimental to the lush forest. Green patches inside the forest are to be identified and the respective space will be developed for organizing small national and international conferences, festivals, cultural events, and other recreational activities.\n\nThe authorities are also planning to expand public amenities inside the forest through extensive construction of restaurants, toilets, drinking water, etc.., for the convenience of the visitors. It must be noted that Sanjay Van is one of the few untouched green lungs of the Capital but is on the verge of massive destruction as the LG’s orders of fruit-bearing trees’ plantation and cocoon rearing in Sanjay Van for awareness of silk production is nothing more than playing with nature according to one’s own needs and desires. The plantation of fruit-bearing trees not native to Delhi’s biodiversity might not survive. The authority is merely trying to change the face of the forest and disturb the natural ecology of Sanjay Van. The recreational activities and plantations are mere attractions and key to the commercialization of Sanjay Van."];
+      const PARA3_OPTIONS = ["We most humbly urge the LG Delhi to recall the orders for the construction of restaurants, conference rooms etc., because adventure sports and Eco-tourism are not possible without deforestation, disturbing biodiversity and wildlife in Sanjay Van. Moreover, according to the latest study, Delhi is the most polluted city in the world. The only access to clean air will be hampered immensely if this project moves ahead.\n\nThe forest is home to several avifauna species and diverse varieties of trees. Because of the same, Sanjay Vann is frequented by a lot of birdwatchers and also cyclists who come here to ride in and breathe fresh air in the morning. Aside from birds that include Eurasian golden oriole, purple sunbird, Asian koel, Brahminy starling, Indian silverbill, white-throated kingfisher, Grey-breasted Prinia, crested honey buzzard, rufous treepie, and Indian paradise flycatcher, etc, the forest also conserves habitat for jackals, snakes, nilgais and several species of butterflies.\n\nSanjay Vann has already undergone severe degradation in recent times with the proliferation of the Prosopis juliflora, commonly known as vilayati kikar tree, which is non-endemic to the Aravalli Ranges and has caused depletion of the groundwater level, killing native flora and changing the natural soil characteristics of the Aravallis. Sewage water and effluent which is discharged into Sanjay Van has also affected this green belt in the Capital.\n\nIn the recent case of Jaipal Singh v. Lt. Governor, the NGT observed that no non-forest activity is permissible in the Ridge area. The tribunal had also placed reliance on the case of DDA v. Kenneth Builders & Developers (P) Ltd. wherein it was held that “the project of DDA involving non forestry use of the land could be permitted only after obtaining clearance from the Ridge Management Board and after obtaining the permission of this Court.” Additionally, the tribunal observed that “the Ridge in Delhi has historical and environmental significance. It is made of quartzite rocks. It has special and distinct features and uses.”\n\nHence, the recent proposal of DDA to convert Sanjay Vann into an Eco-Tourism hub will deteriorate the only left green belts of Delhi. Cutting down trees for the construction of restaurants, toilets etc, in the name of the convenience of visitors would disturb the biodiversity of the forest. The National Capital has already made international headlines for its poor air quality every year. Experts have already warned that\n\n“Forest areas should be left untouched, as we don't have a lot of genuine forest area left in the capital city. Nature trails are already there in Sanjay Vann and anything beyond that would be an invasion of forest land.”\n\nHence, as a citizen, I urge you to help restore one the only remaining green patches of the city and prevent the damage from happening.\n\nDirect the Delhi Development Authority to recall the Tender Notice issued for Eco-Tourism at Sanjay Van.\nDirect South Delhi Municipal Corporation (SDMC) to do proper clean-up of Sanjay Van.\nDirect SDMC to take strict action against the spilling of garbage, plastic waste at Sanjay Vann.\nDirect SDMC to conduct regular awareness campaigns on sustainability, the climate crisis, and the importance of Sanjay Van for the national capital.\nInstall new waste bins by replacing the old and damaged ones.\n\nEagerly anticipating an immediate, careful, and most urgent consideration of the above matter from your end.\n\nSources and Important Reads:\n\nAfter row, Delhi Development Authority defends plan for eco-tourism at Sanjay Van (Oct 21, 2021).\nEcotourism is the new buzzword in the Indian government (2002).\nDefinitions of Ecotourism, Nature Tourism, Sustainable Tourism, Responsible Tourism\nAfter visiting Anang Tal at Sanjay Van, Delhi L-G Vinai Kumar Saxena orders stepwell’s restoration.\nNGT order dated 15.01.2021, Pavit Singh Applicant(s) v/s. The State of NCT Of Delhi & Ors. Respondent(s)\nExpression of Interest (EOI) for Design, Development, Operations and Maintenance of Nature based tourism at Sanjay Van under Public Private Partnership Model. Dy. Director Horticulture HD-IV, Delhi Development Authority New Delhi. August 27, 2021.\nDelhi and Kolkata are the two most polluted cities in the world: Report. Business Insider India. August 19, 2022\n\n\nCopy to:\n\nSh. Manish Sisodia\nDeputy Chief Minister of Delhi\nOffice at: A-Wing, 6th level, Delhi Secretariat,\nI.P. Estate, New Delhi – 110002\nEmail: msisodia.delhi@gov.in\n\n\n\nShri Manish Kumar Gupta, IAS,\nVice- Chairman of DDA\nEmail id: vcdda@dda.org.in\n\n\nSh. Anurag Jain,\nVice-Chairman,\nDelhi Development Authority,\nEmail id: vcdda@dda.org.in\n\n\nSh. Ishwar Singh,IFS\nPr. Chief Conservator of Forests & Head of Department\nEmail id: pccf-gnctd@delhi.gov.in\n\n\nSh. Sanjeev Khirwar IAS\nPrincipal Secretary (Environment & Forest)\nEmail id: senv@nic.in\n\n\nMs. Kamal Preet IFS\nChief Conservator of Forests (Admin.)\nEmail id: ccfgnctd@gmail.com\n\n\nSh. Nisheeth Saxena, IFS\nChief Conservator of Forests\nEmail id: ccfgnctd@gmail.com\n\n\nSh. Nisheeth Saxena, IFS\nMember Secretary of Delhi Biodiversity Council\nEmail id: delhi.biodiversity@gmail.com"];
+      const SIGNING_OFF_OPTIONS = ["Yours Sincerely,","In Solidarity, An environmentally conscious and concerned citizen.","With hope for justice,","Regards,"];
 
-        const iOS =
-          /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-          !window.MSStream;
+      // --- Use actual newline characters internally for JS logic ---
+      const LINE_BREAK = "\n";
+      const DOUBLE_LINE_BREAK = "\n\n";
+    
+      
+      let mailtoLink = "";
+      let copyText = ""; // Body only for preview/copy
+      let selectedSubject = "";
 
-        if (iOS)
-          location.href = sites[1];
-        else
-          location.href = sites[0];
-      })();
+      function getRandomElement(arr) {
+        // Ensure arr is an array and not empty before accessing length
+        if (!Array.isArray(arr) || arr.length === 0) return "";
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      function escapeHtmlForDisplay(unsafe) {
+        if (typeof unsafe !== "string") return "";
+        return unsafe
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function prepareMail() {
+        const sendLink = document.getElementById("send");
+
+        try {
+          selectedSubject = getRandomElement(SUBJECT_LINES);
+          const selectedPara1 = getRandomElement(PARA1_OPTIONS);
+          const selectedPara2 = getRandomElement(PARA2_OPTIONS);
+          const selectedPara3 = getRandomElement(PARA3_OPTIONS);
+          const selectedSignoff = getRandomElement(SIGNING_OFF_OPTIONS);
+
+          // --- Construct body using actual newlines ---
+          const bodyForMailto = [
+            selectedPara1,
+            selectedPara2,
+            selectedPara3,
+            selectedSignoff,
+          ].filter(p => typeof p === 'string' && p.length > 0) // Filter out potential empty strings/undefined
+           .join(DOUBLE_LINE_BREAK); // Join paragraphs with internal newlines
+
+          // --- Construct mailto link (URLSearchParams will encode \n correctly) ---
+          const params = new URLSearchParams();
+          // Only add params if they have a value
+          if (CC_ADDRESS) params.append("cc", CC_ADDRESS);
+          if (BCC_ADDRESS) params.append("bcc", BCC_ADDRESS);
+          if (selectedSubject) params.append("subject", selectedSubject);
+          if (bodyForMailto) params.append("body", bodyForMailto); // Let URLSearchParams handle encoding 
+
+
+          // Platform Specific Adjustments (Example for iOS if needed later)
+          let finalQueryString = params.toString();
+          finalQueryString = finalQueryString.replace(/\+/g, '%20');
+
+          // Platform Detection
+					const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+					const platformNavigator = navigator.platform || ""; // For OS-level platform string
+
+					let detectedSystem = "Unknown";
+					let mailtoEncodingProfile = "standard"; // Profile to decide encoding: 'ios_specific' or 'standard'
+
+					// iOS Detection Logic
+					// 1. Check navigator.platform for direct iOS device strings (most reliable if available)
+					if (/iPad|iPhone|iPod/.test(platformNavigator)) {
+						detectedSystem = "iOS";
+						mailtoEncodingProfile = "ios_specific";
+					}
+					// 2. Check userAgent for standard iOS device strings
+					else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) { // !window.MSStream helps avoid some Windows Phone false positives
+						detectedSystem = "iOS";
+						mailtoEncodingProfile = "ios_specific";
+					}
+					// 3. Check for "Macintosh" + "Mobile" in userAgent (common for iPads in desktop mode/emulators)
+					else if (/Macintosh/.test(userAgent) && /Mobile/.test(userAgent)) {
+						detectedSystem = "iOS";
+						mailtoEncodingProfile = "ios_specific";
+					}
+					// 4. Check for "Macintosh" userAgent with multi-touch capability (another iPad desktop mode/emulator indicator)
+					else if (/Macintosh/.test(userAgent) && navigator.maxTouchPoints && navigator.maxTouchPoints > 1) {
+						detectedSystem = "iOS";
+						mailtoEncodingProfile = "ios_specific";
+					}
+					// macOS Detection (ensure it's not an iPad already identified above)
+					else if ((/Macintosh/.test(userAgent) || /MacIntel/.test(platformNavigator) || /MacPPC/.test(platformNavigator) || /Mac68K/.test(platformNavigator))) {
+						detectedSystem = "macOS";
+						mailtoEncodingProfile = "standard";
+					}
+					// Android Detection
+					else if (/android/i.test(userAgent)) {
+						detectedSystem = "Android";
+						mailtoEncodingProfile = "standard"; // Android is generally robust
+					}
+					// Windows Detection
+					else if (/Win/.test(platformNavigator)) {
+						detectedSystem = "Windows";
+						mailtoEncodingProfile = "standard";
+					}
+					// Linux Desktop Detection
+					else if (/Linux/.test(platformNavigator) && !/android/i.test(userAgent)) { // Exclude Android's Linux
+						detectedSystem = "Linux";
+						mailtoEncodingProfile = "standard";
+					}
+					// If still "Unknown", it might be a less common OS. 'standard' is a safe default.
+					console.log("Detected System:", detectedSystem);
+					console.log("Using mailto encoding profile:", mailtoEncodingProfile);
+
+					// Apply encoding adjustments based on the profile
+					if (mailtoEncodingProfile === "ios_specific") {
+						console.log("Applying iOS specific mailto link generation strategy.");
+						finalQueryString = finalQueryString.replace(/%0A/g, '%0D%0A');
+						console.log("iOS: Converted newlines from %0A to %0D%0A for better compatibility.");
+					}
+					
+					else if (mailtoEncodingProfile === "standard") {
+						console.log("Applying standard mailto link generation strategy for ", detectedSystem);
+					}
+					// finalQueryString is now potentially adjusted based on the platform.
+
+					if(mailtoLink.length>1998)
+						console.warn("mailto too long for Chrome: " + mailtoLink.length +" chars");
+					else
+						console.log("mailto length OK: "+ mailtoLink.length +" chars");
+
+          if (TO_ADDRESS) {
+             // Encode TO addresses individually, then join
+             const encodedTo = TO_ADDRESS.split(",")
+              .map(e => e.trim()) // Trim whitespace first
+              .filter(e => e)     // Remove empty entries
+              .map(e => encodeURIComponent(e)) // Then encode
+              .join(",");
+
+             if (encodedTo) { // Ensure there's at least one valid TO address after filtering/encoding
+                mailtoLink = `mailto:${encodedTo}?${finalQueryString}`;
+             } else {
+                mailtoLink = ""; // No valid TO address
+                console.error("No valid TO addresses provided after encoding.");
+             }
+
+          } else {
+            mailtoLink = "";
+            console.error("TO address constant is missing or empty.");
+          }
+
+          // --- Construct body text for preview/copy (plain text) ---
+          copyText = [
+              selectedPara1,
+              selectedPara2,
+              selectedPara3,
+              selectedSignoff
+          ].filter(p => typeof p === 'string' && p.length > 0)
+           .join('\n\n');
+
+          // --- Update preview elements safely ---
+          const toElem = document.getElementById("preview-to");
+          const ccElem = document.getElementById("preview-cc");
+          const ccLine = document.getElementById("cc-line");
+          const bccElem = document.getElementById("preview-bcc");
+          const bccLine = document.getElementById("bcc-line");
+          const subjectElem = document.getElementById("preview-subject");
+          const previewElem = document.getElementById("email-preview");
+
+          if (toElem) toElem.textContent = escapeHtmlForDisplay(TO_ADDRESS || '(Not specified)');
+          if (ccElem && ccLine) {
+              if (CC_ADDRESS) {
+                  ccElem.textContent = escapeHtmlForDisplay(CC_ADDRESS);
+                  ccLine.style.display = 'block';
+              } else {
+                  ccLine.style.display = 'none';
+              }
+          }
+          if (bccElem && bccLine) {
+              if (BCC_ADDRESS) {
+                  bccElem.textContent = escapeHtmlForDisplay(BCC_ADDRESS);
+                  bccLine.style.display = 'block';
+              } else {
+                  bccLine.style.display = 'none';
+              }
+          }
+          // Display generated subject or placeholder
+          if (subjectElem) subjectElem.textContent = escapeHtmlForDisplay(selectedSubject || '(No subject generated)');
+          // Display generated body or placeholder
+          if (previewElem) previewElem.textContent = copyText || '(No body content generated)';
+
+
+          // --- Update the href of the anchor tag ---
+          if (sendLink) {
+            if (mailtoLink) {
+              sendLink.href = mailtoLink;
+              sendLink.classList.remove("disabled");
+              sendLink.title = "Click to open in your default email client";
+            } else {
+              sendLink.href = "#"; // Prevent navigation
+              sendLink.classList.add("disabled"); // Visually disable
+              sendLink.title = "Cannot generate email link (check TO address and console errors)";
+            }
+          }
+        } catch (err) {
+          console.error("Error in prepareMail:", err);
+          alert("An error occurred while preparing the email preview. Check console for details.");
+          if (sendLink) {
+            sendLink.href = "#";
+            sendLink.classList.add("disabled");
+            sendLink.title = "Error generating email link";
+          }
+        }
+      }
+
+      // --- Event Listeners within generated file ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const copyButton = document.getElementById("copy");
+
+        if (copyButton) {
+          copyButton.addEventListener("click", () => {
+            // Ensure content exists before trying to copy
+            if (!copyText && !selectedSubject) {
+              alert("Email content not generated yet. Please reload or check generator inputs.");
+              return;
+            }
+            // Construct the full text including headers for copying
+            const fullEmailText = `To: ${TO_ADDRESS || ''}\n${
+              CC_ADDRESS ? `Cc: ${CC_ADDRESS}\n` : ""
+            }${
+              BCC_ADDRESS ? `Bcc: ${BCC_ADDRESS}\n` : ""
+            }Subject: ${selectedSubject || ''}\n\n${copyText || ''}`;
+
+            navigator.clipboard.writeText(fullEmailText)
+              .then(() => {
+                alert("Email content copied to clipboard!");
+              })
+              .catch(err => {
+                console.warn("Clipboard API failed, trying fallback:", err);
+                // Fallback using temporary textarea
+                const textarea = document.createElement("textarea");
+                textarea.value = fullEmailText;
+                textarea.style.position = "fixed"; // Prevent scrolling issues
+                textarea.style.opacity = "0"; // Hide it visually
+                textarea.style.left = "-9999px"; // Move off-screen
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                  document.execCommand("copy");
+                  alert("Email content copied (fallback)!");
+                } catch (errFallback) {
+                  console.error("Fallback copy failed:", errFallback);
+                  alert("Failed to copy automatically. Please copy manually from the preview.");
+                }
+                document.body.removeChild(textarea);
+              });
+          });
+        }
+
+        // Initial preparation on load
+        prepareMail();
+      });
+    
+      // --- Embedded Mail Generation Script END ---
     </script>
-  </body>
-
+</body>
 </html>

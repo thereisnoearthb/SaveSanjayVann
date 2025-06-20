@@ -1,357 +1,667 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <meta property="og:title" content="Save Sanjay Van" />
+  <meta property="og:title" content="Save Sanjay Van">
   <meta property="og:description"
-    content="Movement by the people of Sanjay Van, Delhi to save Sanjay Van from destruction" />
+    content="Movement by the people of Sanjay Van, Delhi to save Sanjay Van from destruction">
   <meta property="og:image"
-    content="http://savesanjayvann.thereisnoearthb.com/pictures/Social%20Preview%20of%20Links.jpg" />
-
-  <meta property="og:image:type" content="image/png" />
-  <meta name="twitter:card" content="summary_large_image" />
+    content="http://savesanjayvann.thereisnoearthb.com/pictures/Social%20Preview%20of%20Links.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="title" content="Save Sanjay Van: Official Website of the movement">
   <title>Save Sanjay Van: Official Website of the movement</title>
-  <meta property="keywords"
+  <meta name="keywords"
     content="Environment, Sanjay Van, Delhi, City Forest , Sanjay Van Forest, Save Sanjay Van campaign, forests, Protected ">
 
+  <link rel="icon" href="https://thereisnoearthb.com/TINEB_LOGO.jpeg" type="image/x-icon">
 
-  <link rel="icon" href="https://thereisnoearthb.com/TINEB_LOGO.jpeg" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <!--   <link rel='stylesheet' id='hive-style-css' href='https://thereisnoearthb.com/styled.css' type='text/css' media='all' />
-<link rel='stylesheet' id='hive-fonts-css' href='https://fonts.googleapis.com/css?family=Noto%20Serif%3A400%2C700%2C400italic%7CPlayfair%20Display%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
-<!--<link rel="stylesheet" href="progressbar.css">
--->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@400;700&display=swap" rel="stylesheet">
 
-  <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="https://thereisnoearthb.com/css/materialize.css"
-    media="screen,projection" />
-  <link type="text/css" rel="stylesheet" href="https://thereisnoearthb.com/style.css" media="screen,projection" />
-  <!--
-      Import Google Icon Font
-      Theme sourced from https://materializecss.com/getting-started.html
-      -->
+  <!-- Swiper CSS for Carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
   <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TINEB Stylesheet -->
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 400;
+      text-align: justify;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding-bottom: 80px;
+      /* Prevents content overlap by fixed footer */
+    }
+
+    /* Container for the logo with shadow */
+    .logo-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      /* Page header element now acts similarly to a fixed navbar */
+      position: fixed;
+      z-index: 99;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Container for page titles */
+    .title-container {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .page-title {
+      font-family: "Sulphur Point", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1;
+      color: #2e4989;
+      text-align: center;
+      margin-top: 0.7em;
+      margin-bottom: 0.25em;
+      /* Space between title and subtitle */
+    }
+
+    .page-subtitle {
+      font-family: "Sulphur Point", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1;
+      text-align: center;
+      letter-spacing: -0.01em;
+      color: #42367d;
+    }
+
+    /* Card Styles */
+    .campaign-card {
+      background-color: #fff;
+      border-radius: 16px;
+      /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); */
+      width: 100%;
+      max-width: 314px;
+      overflow: hidden;
+      /* Override */
+      background-color: #ffffff;
+      border: 1px solid #000000;
+      border-radius: 13px;
+      padding: 30px 29.5px 25px 29.5px;
+      position: relative;
+      margin-bottom: 1.2rem;
+      overflow: visible; /* Allow nav buttons to be positioned outside its bounds */
+    }
+
+    /* Carousel Styles */
+    .swiper {
+      border-radius: 16px;
+      overflow: visible; /* Allow nav buttons to be positioned outside its bounds */
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* Card Content Styles */
+    .card-content {
+      padding: 0.5rem 0;
+    }
+
+    .card-text {
+      margin: 10px 0;
+      font-size: 12px;
+      /* line-height: 1.6; */
+    }
+
+    /* Social Button Styles */
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-btn {
+      background-color: #2e4989;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social-btn:hover {
+      background-color: #1c2d55; /* Darker blue on hover */
+      box-shadow: 0 4px 8px darkgrey; /* Adds a shadow on hover */
+    }
+
+    .social-btn img {
+      width: 50%;
+      height: 50%;
+      display: block; /* Ensures the image behaves as a block element */
+      object-fit: contain; /* Maintains aspect ratio */
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Link Buttons */
+    .link-button {
+      display: block;
+      width: 100%;
+      max-width: 314px;
+      background-color: white;
+      color: black;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+      border: 1px solid #000000;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .link-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    #link-button-wrapper {
+      width: 100%;
+      max-width: 314px;
+    }
+
+    .swiper-pagination-bullet {
+      /* Manually setting the sizes of the bullets */
+      width: 6px; 
+      height: 6px;
+      /* Manually adjusting the position of the bullets */
+      position: relative;
+      top: 20px;
+      display: inline-block;
+      border: 1px solid #5385fb;
+      background: none;
+      opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.9);
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #173b91 !important;
+    }
+
+    /* Swiper left and right button styling */
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 25px;
+      /* Size of the circular button */
+      height: 25px;
+      background-color: #2e4989;
+      border-radius: 50%;
+    }
+
+    .swiper-button-prev {
+      left: -43px;
+    }
+
+    .swiper-button-next {
+      right: -43px;
+    }
+
+    /* Arrow within the button */
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 16px;
+      /* Adjust arrow icon size */
+      font-weight: bold;
+      color: white;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background-color: #173b91;
+      /* Darker blue on hover */
+    }
+
+    /* Scroll to Top Button Styles */
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 6.5rem;
+      right: calc(50% - 180px);
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #2e4989;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #scrollTopBtn img {
+      width: 50%;
+      height: 50%;
+      display: block; /* Ensures the image behaves as a block element */
+      object-fit: contain; /* Maintains aspect ratio */
+      margin: auto;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: #1c2d55; /* Darker blue on hover */
+      box-shadow: 0 4px 8px darkgrey; /* Adds a shadow on hover */
+    }
+
+    /* Styles for Desktop (e.g., screens wider than 768px) */
+    @media (min-width: 768px) {
+      #scrollTopBtn {
+        /* Override properties for desktop */
+        bottom: 6rem;
+        right: 3rem;
+      }
+    }
+
+    .instagram-filter {
+      width: 100%;
+    }
+
+    /* Footer Styles */
+    footer {
+      position: fixed;
+      bottom: 0;
+      /* Stick to the bottom */
+      left: 0;
+      /* Align to the left */
+      width: 100%;
+      /* Span full width */
+      background-color: #fdfaea;
+      padding: 20px 15px;
+      border-top: 1px solid #e0e0e0;
+      z-index: 100;
+    }
+
+    .footer-content-wrapper {
+      max-width: 700px;
+      /* Constrain content width for readability */
+      margin: 0 auto;
+      /* Center the wrapper */
+      text-align: center;
+    }
+
+    .footer-text {
+      font-size: 0.875rem;
+      color: #333;
+    }
+
+    .footer-text a {
+      color: #42367d;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 
 <body>
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <center>
-    <!--<img height="196vw" src="pictures/logo.jpeg" alt="SaveKumaon logo">-->
-    <h2>
-      SAVE SANJAY VAN
-    </h2>
-  </center>
-  <!--<a href="https://twitter.com/search?q=saveSanjay Vann&src=typed_query&f=live" id="userName">#SaveSanjay Vann</a>-->
+  <div class="title-container">
+    <h1 class="page-title">Save Sanjay Van</h1>
+  </div>
 
-  <div id="links">
-    <!--<a  href="https://instagram.com/savedumna" target="_blank"><img src="https://thereisnoearthb.com/icons/icons/instagram.svg" alt="Instagram icon" width="35" height="145"></a>-->
+  <div class="campaign-card">
+    <!-- Swiper Carousel -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="pictures/Carousel/slide1.png" alt="Sanjay Vann image" loading="lazy">
+        </div>
+        <div class="swiper-slide">
+          <img src="pictures/Carousel/slide2.png" alt="Sanjay Vann image" loading="lazy">
+        </div>
+        <div class="swiper-slide">
+          <img src="pictures/Carousel/slide3.png" alt="Sanjay Vann image" loading="lazy">
+        </div>
+        <div class="swiper-slide">
+          <img src="pictures/Carousel/slide4.png" alt="Sanjay Vann image" loading="lazy">
+        </div>
+        <div class="swiper-slide">
+          <img src="pictures/Carousel/slide5.png" alt="Sanjay Vann image" loading="lazy">
+        </div>
+        <div class="swiper-slide">
+          <img src="pictures/Carousel/slide6.png" alt="Sanjay Vann image" loading="lazy">
+        </div>
+        <div class="swiper-slide">
+          <img src="pictures/Carousel/slide7.png" alt="Sanjay Vann image" loading="lazy">
+        </div>
+        <div class="swiper-slide">
+          <img src="pictures/Carousel/slide8.png" alt="Sanjay Vann image" loading="lazy">
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
 
-
-
-    <div class="row container">
-      <div class="">
-        <strong>
-
-          <div class="yellow card">
-            <div class="card-image large">
-              <div class="carousel carousel-slider no-autoinit">
-
-                <!--<a class="carousel-item" href="#five!"><img   src="pictures/Sanjay Vann protest.png"></a>
-          <a class="carousel-item" href="#six!"><img   src="pictures/Sanjay Vann protest hindi.png"></a>
--->
-                <div class="gallery js-flickity">
-                  <div class="gallery-cell">
-                    <img src="pictures/sanjayVann1.jpeg" alt="Save Sanjay Vann">
-
-                  </div>
-                  <div class="gallery-cell">
-                    <img src="pictures/sanjayVann2.jpeg" alt="Save Sanjay Vann">
-
-                  </div>
-                  <div class="gallery-cell">
-                    <img src="pictures/sanjayVann3.jpeg" alt="Save Sanjay Vann">
-
-                  </div>
-                  <div class="gallery-cell">
-                    <img src="pictures/sanjayVann4.jpeg" alt="Save Sanjay Vann">
-
-                  </div>
-
-
-                </div>
-                <!--        <a class="carousel-item" href="#one!"><img   src="pictures/instagram post /2.jpg"></a>
-          <a class="carousel-item" href="#one!"><img   src="pictures/instagram post /3.jpg"></a>
-          <a class="carousel-item" href="#one!"><img   src="pictures/instagram post /4.jpg"></a>
-          <a class="carousel-item" href="#one!"><img   src="pictures/instagram post /5.jpg"></a>
-          <a class="carousel-item" href="#one!"><img   src="pictures/instagram post /6.jpg"></a>
-          <a class="carousel-item" href="#one!"><img   src="pictures/instagram post /7.jpg"></a>
-          <a class="carousel-item" href="#one!"><img   src="pictures/instagram post /8.jpg"></a>
-          <a class="carousel-item" href="#one!"><img   src="pictures/instagram post /9.jpg"></a>
--->
-                <!--
-          <a class="carousel-item" href="#one!"><img   src="pictures/photo6203761551480040973.jpg"></a>
-          <a class="carousel-item" href="#two!"><img  src="pictures/photo6203761551480040974.jpg"></a>
-          <a class="carousel-item" href="#three!"><img  src="pictures/photo6203761551480040975.jpg"></a>
-          <a class="carousel-item" href="#four!"><img   src="pictures/photo6203761551480040976.jpg"></a>
-    -->
-              </div>
-
-              <span class="card-title"></span>
-              <!--        <a href="https://maps.google.com/?q=29.512407,79.623319&entry=gps" target="_blank" class="btn-floating halfway-fab waves-effect waves-light btn-large blue pulse"><i class="large material-icons">share</i></a>
---> <a href="mail.html" target="_blank"
-                class="btn-floating halfway-fab waves-effect waves-light btn-large red pulse"><i
-                  class="large material-icons">forward_to_inbox</i></a>
-              <!--https://www.instagram.com/p/CUAZBsPL3YA/-->
-            </div>
-            <div class="card-content">
-              <!--<p>The villagers of Sanjay Vann, Peora, Diyari, Chatola and neighboring areas, as well as youth leaders,
-environmentalists, NGOs and citizens who are deeply concerned about the installation of an illegal
-borewell in Sanjay Vann, will stage a peaceful ‘Dharna’ at the borewell site in Sanjay Vann at 11.30 AM on Sunday,
-September 19, 2021</p>-->
-              <p>
-                A Citizens’ appeal to withdraw the Tender Notification issued by Delhi Development Authority to convert
-                the Sanjay Van area as an Eco-Tourism Hub. Delhi Development Authority is planning to utilize the forest
-                area for recreational purposes.
-              </p><br>
-              <p>
-                <label id="emailInput"></label> people have sent the email so far ✊
-              </p><br>
-              <p>Also, Tweet to spread the word.</p>
-                <a id="tweet-quote" target="_blank" class='fa fa-twitter' title="Tweet this Quote!"> Tweet!
-                </a>
-            </div>
-          </div>
-
-          <div class="video-container">
-            <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/GR-rm5FC8IA" frameborder="0"
-              allowfullscreen></iframe>
-          </div>
-          <br>
-          <a class="link" href="https://maps.app.goo.gl/deawfrD74NhLy2mW8" target="_blank"><i class='fas fa-thumbtack' style='color: red; padding-right: 5px;'></i>
-              Sanjay Van Cleanup Drive Location</a>
-          <a class="link flow-text" id="Button7" href="https://www.instagram.com/ar/356428362978205" target="_blank">
-            <img src="https://savesanjayvann.thereisnoearthb.com/pictures/instagramfilter.gif" alt="" width="100%">
-            <br>Use the Save Sanjay Van Filter</a>
-            <a class="link flow-text" id="Button7"
-            href="https://www.youthkiawaaz.com/2022/08/sanjay-vann"
-            target="_blank">Youth ki Awaaz: Delhi Residents Want To 'Save Sanjay Van', The City's Green Lungs</a>
-          <a class="link flow-text" id="Button7"
-            href="https://timesofindia.indiatimes.com/city/delhi/eco-tourism-plan-at-sanjay-van-to-harm-green-lungs-residents/articleshow/86737273.cms"
-            target="_blank">Times of India</a>
-          <a class="link flow-text" id="Button1"
-            href="https://www.hindustantimes.com/cities/delhi-news/dda-plans-to-develop-sanjay-van-as-ecotourism-hub-with-rock-climbing-safari-aerial-trails-101631901146386.html"
-            target="_blank">
-            <!--<img src="https://thereisnoearthb.com/icons/undraw_tweetstorm_49e8.svg" alt="Tweetathon graphic" width="65" height="145"><br>-->Hindustan
-            times
-          </a>
-          <a class="link flow-text" id="Button2"
-            href="https://www.msn.com/en-in/news/other/new-who-standards-for-air-quality-delhi-needs-to-accelerate-action-say-experts/ar-AAOJgt5"
-            target="_blank">Air Quality of Delhi</a>
-          <a class="link" href="https://www.instagram.com/p/BwSEQRTncrH/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 1</a>
-          <a class="link" href="https://www.instagram.com/p/Bw2NonBHs6e/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 2</a>
-          <a class="link" href="https://www.instagram.com/p/BzqS6JMnY4V/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 3</a>
-          <a class="link" href="https://www.instagram.com/p/Bz8XMein8w7/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 4</a>
-          <a class="link" href="https://www.instagram.com/p/B0TJeIeHKS2/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 5</a>
-          <a class="link" href="https://www.instagram.com/p/B0i3lxmHnEI/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 6</a>
-          <a class="link" href="https://www.instagram.com/p/B00kg1WHs34/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 7</a>
-          <a class="link" href="https://www.instagram.com/p/B1Gwb5THfjJ/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 8</a>
-          <a class="link" href="https://www.instagram.com/p/B1qXNV7H_1S/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 9</a>
-          <a class="link" href="https://www.instagram.com/p/B16ERwvn7ff/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 10</a>
-          <a class="link" href="https://www.instagram.com/p/B2ea9aTHpFn/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 11</a>
-          <a class="link" href="https://www.instagram.com/p/B20d0Ernrkn/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 12</a>
-          <a class="link" href="https://www.instagram.com/p/B3JJpfxnVMt/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 13</a>
-          <a class="link" href="https://www.instagram.com/p/B3W9eN7nK3G/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 14</a>
-          <a class="link" href="https://www.instagram.com/p/B3pKZX7Hveb/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 15</a>
-          <a class="link" href="https://www.instagram.com/p/B4AZMFtnTcn/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 16</a>
-          <a class="link" href="https://www.instagram.com/p/B4kcTYBH9EI/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 17</a>
-          <a class="link" href="https://www.instagram.com/p/B4urbGJnmks/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 18</a>
-          <a class="link" href="https://www.instagram.com/p/B5Fz2MWnkf-/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 19</a>
-          <a class="link" href="https://www.instagram.com/p/B5UPZcDHT6E/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 20</a>
-          <a class="link" href="https://www.instagram.com/p/B544J9TnmOE/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 21</a>
-          <a class="link" href="https://www.instagram.com/p/B6sZqaRH3fJ/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 22</a>
-          <a class="link" href="https://www.instagram.com/p/B7Bgdr0HXsq/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 23</a>
-          <a class="link" href="https://www.instagram.com/p/B7QLTBQnDV9/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 24</a>
-          <a class="link" href="https://www.instagram.com/p/B7lbXYCn6a2/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 25</a>
-          <a class="link" href="https://www.instagram.com/p/B71CTK7nNwO/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 26</a>
-          <a class="link" href="https://www.instagram.com/p/B8F73nkHcvj/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 27</a>
-          <a class="link" href="https://www.instagram.com/p/B8ZI1pvHTtX/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 28</a>
-          <a class="link" href="https://www.instagram.com/p/B8tCx6EnTZ1/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 29</a>
-          <a class="link" href="https://www.instagram.com/p/B9Q008JHTyj/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 30</a>
-          <a class="link" href="https://www.instagram.com/p/B9hCWU5HKuP/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 31</a>
-          <a class="link" href="https://www.instagram.com/p/B96rcqSH8RE/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 32</a>
-          <a class="link" href="https://www.instagram.com/p/CKHGlXZlgAf/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 33</a>
-          <a class="link" href="https://www.instagram.com/p/CKeRrsOo9-q/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 34</a>
-          <a class="link" href="https://www.instagram.com/p/CKl_9XXJO3y/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 35</a>
-          <a class="link" href="https://www.instagram.com/p/CK6mWsOHYmi/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 36</a>
-          <a class="link" href="https://www.instagram.com/p/CLeijAkJ1Zx/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 37</a>
-          <a class="link" href="https://www.instagram.com/p/CMCqQMEoYpd/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 38</a>
-          <a class="link" href="https://www.instagram.com/p/CMNBoiYlPNB/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 39</a>
-          <a class="link" href="https://www.instagram.com/p/CMWS_YKl_SF/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 40</a>
-          <a class="link" href="https://www.instagram.com/p/CMZ7DfwlRvJ/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 41</a>
-          <a class="link" href="https://www.instagram.com/p/CM3-9AMINYr/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 42</a>
-          <a class="link" href="https://www.instagram.com/p/CNMjpmvpHBJ/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 43</a>
-          <a class="link" href="https://www.instagram.com/p/CNXMOqVoyRa/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 44</a>
-          <a class="link" href="https://www.instagram.com/p/CSJNWNzjqVv/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 45</a>
-          <a class="link" href="https://www.instagram.com/p/CSi38epJlm9/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 46</a>
-          <a class="link" href="https://www.instagram.com/p/CSljLBPJTBr/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 47</a>
-          <a class="link" href="https://www.instagram.com/p/CS1e4TuDXmx/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 48</a>
-          <a class="link" href="https://www.instagram.com/reel/CS3QJ8MJCBx/?utm_medium=copy_link"
-            target="_blank">Cleanup post Cleanup post 49</a>
-          <a class="link" href="https://www.instagram.com/reel/CS3RCzoJxSx/?utm_medium=copy_link"
-            target="_blank">Cleanup post Cleanup post 50</a>
-          <a class="link" href="https://www.instagram.com/reel/CS3SBsep-Ed/?utm_medium=copy_link"
-            target="_blank">Cleanup post Cleanup post 51</a>
-          <a class="link" href="https://www.instagram.com/p/CS9cksapGL4/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 52</a>
-          <a class="link" href="https://www.instagram.com/reel/CTJesVjD4XP/?utm_medium=copy_link"
-            target="_blank">Cleanup post Cleanup post 53</a>
-          <a class="link" href="https://www.instagram.com/p/CTSMZpcIAQs/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 54</a>
-          <a class="link" href="https://www.instagram.com/reel/CTb8nOpn8Zh/?utm_medium=copy_link"
-            target="_blank">Cleanup post Cleanup post 55</a>
-          <a class="link" href="https://www.instagram.com/p/CUNaCQ2rvYA/?utm_medium=copy_link" target="_blank">Cleanup
-            post Cleanup post 56</a>
-
-
-          <h6>
-            <center>
-
-              <!--<a class="waves-effect waves-light btn-large yellow blue-text flow-text" href="assets/16062015_ESZ Notification Sanjay Vann WLS.pdf" target="_blank">ESZ Notification: Baitarkanika</a>
-
-        <br><br><a class="waves-effect waves-light btn-large yellow blue-text flow-text" href="https://www.orissapost .com/kharasrota-water-diversion-controversy-no-eco-impact-survey-on-bnp-by-iit-hyderabad/" target="_blank">No survey by IIT-Hyderabad</a>
-        <br><br><a class="waves-effect waves-light btn-large yellow blue-text flow-text" href="assets/6786.pdf" target="_blank">THE GAZETTE OF INDIA</a>
-        <br><br><a class="waves-effect waves-light btn-large yellow blue-text flow-text" href="https://sambadenglish.com/legal-loopholes-and-regulatory-lapses-in-the-kharasrota-pipeline/" target="_blank">Loopholes & Lapses</a>
-        <br><br><a class="waves-effect waves-light btn-large yellow blue-text flow-text" href="https://www.downtoearth.org.in/news/wildlife-biodiversity/Sanjay Vann-will-die-if-freshwater-extraction-by-industries-continues-activist-78828" target="_blank">Down To Earth</a>
-
-        <br><br><a class="waves-effect waves-light btn-large yellow blue-text flow-text" href="assets/2 large-text. ESIA_Bhadrak (2).docx" target="_blank">ESIA_Bhadrak</a>
-        <br><br><a class="waves-effect waves-light btn-large yellow blue-text flow-text" href="https://www.orissapost .com/diversion-of-kharasrota-water-will-cause-irreversible-damage-to-Sanjay Vann-activists/" target="_blank">Orissa post </a>
-
-        <br><br><a class="waves-effect waves-light btn-large yellow blue-text flow-text" href="assets/ESIA 2016.pdf" target="_blank">ESIA 2016</a>
--->
-
-
-          </h6>
-          <br><br>
-          </center>
-          <div class="">
-            <div class="card-panel yellow z-depth-1">
-              <div class="row valign-wrapper">
-                <div class="col s4">
-                  <img src="https://thereisnoearthb.com/TINEB_LOGO.jpeg" alt="" class="large circle responsive-img">
-                  <!-- notice the "circle" class -->
-                </div>
-                <div class="col s10">
-                  <span>
-                    <a class="blue-text flow-text" href="https://thereisnoearthb.com/">This open-source website has been
-                      created by There Is No Earth B for the Save Sanjay Van movement which controls the content
-                      ✊<a></span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!--<a class="waves-effect waves-light yellow black-text flow-text" href="https://thereisnoearthb.com/" target="_blank"><br>This open-source website has been created by There Is No Earth B for the #SaveSanjay Vann movement which controls the content.<br>✊</a>-->
-
+    <!-- Card Content -->
+    <div class="card-content">
+      <div class="card-text">
+        <p>
+          Growing waste problem in Sanjay Van is damaging the reserve forest ecosystem. A grievance letter has been submitted to the concerned authorities urging immediate action to safeguard this vital green space
+        </p>
+        <br>
+        <p>
+          <!-- TODO: Fix Email Count -->
+          <!-- <label id="emailInput"></label> -->
+          2500+ people have sent the <a href="mail.html" target="_blank" rel="noopener noreferrer">email</a> so far ✊
+        </p>
       </div>
     </div>
 
-    <div class="links">
+    <!-- Social Buttons -->
+    <div class="social-buttons">
+      <!-- <a href="mail.html" target="_blank" rel="noopener noreferrer" class="social-btn email-btn" aria-label="Email Button">
+        <img src="assets/email-white.svg" alt="Email icon">
+      </a> -->
 
+      <a href="https://x.com/official_dda/status/1904894651871404074" class="social-btn x-btn" target="_blank"
+        rel="noopener noreferrer" aria-label="X Button">
+        <img src="assets/twitter-x-white.svg" alt="X icon">
+      </a>
 
-      <!--<a  class="link" href="mail.html" target="_blank"><img src="https://thereisnoearthb.com/icons/undraw_black_lives_matter_rndk.svg" alt="Petition graphic" width="90vw" height="145"><br></button>
--->
-      <br>
-      <!--<a class="link" id = "Footer credits" href="https://thereisnoearthb.com" target="_blank"></a>
-         -->
-      <br>
+      <a href="https://www.instagram.com/thereisnoearthb/" class="social-btn instagram-btn" target="_blank"
+        rel="noopener noreferrer" aria-label="Instagram Button">
+        <img src="assets/instagram-white.svg" alt="Instagram icon">
+      </a>
 
-
-
-      <!--</center>
--->
-
-
-
+      <a href="https://chat.whatsapp.com/FRKhIryCoxr7ewbkA89wpT" class="social-btn whatsapp-btn" target="_blank"
+        rel="noopener noreferrer" aria-label="WhatsApp Button">
+        <img src="assets/whatsapp-white.svg" alt="WhatsApp icon">
+      </a>
     </div>
+  </div>
 
-    <!--<a class="link" id="Button16" href="https://thereisnoearthb.com" target="_blank">This open source website has been created by There Is No Earth B for #SaveSanjay Vann which controls the content. We do not have any political, religious or monetary affilitations. With anyone.</a>-->
-    </header>
-    <script type="text/javascript">
-      var emailSent=2583;
-      document.getElementById('emailInput').innerHTML = emailSent;
-      document.addEventListener('DOMContentLoaded', function () {
-        M.AutoInit();
+  <div id="link-button-wrapper">
+  
+    <div class="link-button-section">
+      <h3 class="section-heading">Campaign Updates</h3>
+      <a class="link-button" href="https://maps.app.goo.gl/deawfrD74NhLy2mW8" target="_blank">
+        📍 Sanjay Van Cleanup Drive Location
+      </a>
+  
+      <a class="link-button" href="pictures/grievance-letter.pdf" target="_blank">
+        TINEB's Sanjay Van Waste Grievance Letter (24/2/2025)
+      </a>
+  
+      <a class="link-button" href="pictures/grievance-letter-followup.pdf" target="_blank">
+        Follow up Grievance Letter (12/3/2025)
+      </a>
+  
+      <a class="link-button" href="https://thereisnoearthb.org/blurbs/sanjay-van-recce" target="_blank">
+        Sanjay Van Recce - A photostory (12/11/2024)
+      </a>
+  
+      <a class="link-button" href="https://x.com/ThereIsNoEarthB/status/1903777350896296185" target="_blank">
+        Update: The Fight to #SaveSanjayVan - 𝕏
+      </a>
+  
+      <a class="link-button" href="https://x.com/official_dda/status/1904894651871404074" target="_blank">
+        DDA's official response addressing TINEB's thread outlining the actions taken - 𝕏
+      </a>
+  
+      <a class="link-button" href="https://www.instagram.com/p/DHtCwievbJr/" target="_blank">
+        UPDATE ON SANJAY VAN: Our Collective Voice in Action! - Instagram
+      </a>
+  
+      <a class="link-button" href="pictures/SanjayVan_Notice.pdf" target="_blank">
+        Notice from Deputy Conservator of Forests about the felling of 800-1000 trees in Sanjay Van
+      </a>
+  
+      <a class="link-button" href="https://www.instagram.com/p/C4zmhawSR_n/" target="_blank">
+        800-1000 Trees illegally cut in Sanjay Van Overnight: The Curious Case of Vilayati Kikar - Instagram
+      </a>
+  
+      <a class="link-button"
+        href="https://www.linkedin.com/posts/thereisnoearthb_conservation-urbanforests-ecology-activity-7318208779496370177-NX4v/"
+        target="_blank">
+        Ecology versus Aesthetics: The case of Sanjay Van - LinkedIn
+      </a>
+    </div>
+  
+    <div class="link-button-section">
+      <h3 class="section-heading">Media Mentions</h3>
+  
+      <a class="link-button"
+        href="https://www.hindustantimes.com/cities/delhi-news/forest-to-photo-op-how-delhi-s-scant-wilderness-is-being-tamed-for-leisure-101748409572569.html"
+        target="_blank">
+        Forest to photo-op: How Delhi's scant wilderness is being tamed for leisure - Hindustan Times
+      </a>
+  
+      <a class="link-button" href="https://citizenmatters.in/delhi-environment-sanjay-van-forest-or-park/"
+        target="_blank">
+        Sanjay Van Saga: Forest or park, what does Delhi need? - Citizen Matters
+      </a>
+  
+      <a class="link-button"
+        href="https://www.hindustantimes.com/cities/delhi-news/forest-department-notice-to-dda-over-tree-felling-inside-sanjay-van-101711049216120.html"
+        target="_blank">
+        Forest department notice to DDA over tree-felling inside Sanjay Van - Hindustan Times
+      </a>
+  
+      <a class="link-button"
+        href="https://timesofindia.indiatimes.com/city/delhi/forest-dept-notice-to-dda-over-tree-felling-at-sanjay-van/articleshow/108688794.cms"
+        target="_blank">
+        Forest dept notice to DDA over tree felling at Sanjay Van - Times of India
+      </a>
+  
+      <a class="link-button"
+        href="https://timesofindia.indiatimes.com/city/delhi/green-groups-start-signature-campaign-for-stopping-construction-at-sanjay-van/articleshow/93171701.cms"
+        target="_blank">
+        Delhi: Green groups start signature campaign for stopping construction at Sanjay Van - Times of India
+      </a>
+  
+      <a class="link-button" href="https://www.fairplanet.org/story/the-young-samaritans-saving-indias-forests/"
+        target="_blank">
+        The young Samaritans saving India's forests - Fair Planet
+      </a>
+  
+      <a class="link-button"
+        href="https://www.hindustantimes.com/cities/delhi-news/international-day-for-biological-diversity-students-citizen-groups-join-hands-for-conservation-101653203535038.html"
+        target="_blank">
+        International Day for Biological Diversity: Students, citizen groups join hands for conservation - Hindustan Times
+      </a>
+  
+      <a class="link-button"
+        href="https://timesofindia.indiatimes.com/city/delhi/citizens-launch-campaign-to-stop-green-patch-from-becoming-forest-dump/articleshow/89229856.cms"
+        target="_blank">
+        Delhi: Citizens launch campaign to stop green patch from becoming forest dump - Times of India
+      </a>
+  
+      <a class="link-button"
+        href="https://timesofindia.indiatimes.com/videos/city/delhi/delhi-locals-oppose-ddas-plan-to-convert-sanjay-van-into-eco-tourism/videoshow/86750824.cms"
+        target="_blank">
+        Delhi: Locals oppose DDA's plan to convert Sanjay Van into eco-tourism - Times of India
+      </a>
+  
+      <a class="link-button"
+        href="https://timesofindia.indiatimes.com/videos/city/delhi/delhi-locals-oppose-ddas-plan-to-convert-sanjay-van-into-eco-tourism/videoshow/86750824.cms"
+        target="_blank">
+        Eco-tourism plan at Delhi's Sanjay Van to harm green lungs - Times of India
+      </a>
+  
+      <a class="link-button" href="https://www.youthkiawaaz.com/2022/08/sanjay-vann" target="_blank">
+        Youth ki Awaaz: Delhi Residents Want To 'Save Sanjay Van', The City's Green Lungs
+      </a>
+  
+      <a class="link-button" href="pictures/TreeFellingArticle_HT.jpg" target="_blank">
+        Article about felling of 800-1000 trees in Sanjay Van - Hindustan Times
+      </a>
+  
+      <a class="link-button" href="pictures/TreeFellingArticle_ToI.jpg" target="_blank">
+        Article about felling of 800-1000 trees in Sanjay Van - Times of India
+      </a>
+    </div>
+  
+    <div class="link-button-section">
+      <h3 class="section-heading">Cleanup Posts</h3>
+      <a class="link-button" href="https://www.instagram.com/p/BwSEQRTncrH/?" target="_blank">Cleanup post 1</a>
+      <a class="link-button" href="https://www.instagram.com/p/Bw2NonBHs6e/?" target="_blank">Cleanup post 2</a>
+      <a class="link-button" href="https://www.instagram.com/p/BzqS6JMnY4V/?" target="_blank">Cleanup post 3</a>
+      <a class="link-button" href="https://www.instagram.com/p/Bz8XMein8w7/?" target="_blank">Cleanup post 4</a>
+      <a class="link-button" href="https://www.instagram.com/p/B0TJeIeHKS2/?" target="_blank">Cleanup post 5</a>
+      <a class="link-button" href="https://www.instagram.com/p/B0i3lxmHnEI/?" target="_blank">Cleanup post 6</a>
+      <a class="link-button" href="https://www.instagram.com/p/B00kg1WHs34/?" target="_blank">Cleanup post 7</a>
+      <a class="link-button" href="https://www.instagram.com/p/B1Gwb5THfjJ/?" target="_blank">Cleanup post 8</a>
+      <a class="link-button" href="https://www.instagram.com/p/B1qXNV7H_1S/?" target="_blank">Cleanup post 9</a>
+      <a class="link-button" href="https://www.instagram.com/p/B16ERwvn7ff/?" target="_blank">Cleanup post 10</a>
+      <a class="link-button" href="https://www.instagram.com/p/B2ea9aTHpFn/?" target="_blank">Cleanup post 11</a>
+      <a class="link-button" href="https://www.instagram.com/p/B20d0Ernrkn/?" target="_blank">Cleanup post 12</a>
+      <a class="link-button" href="https://www.instagram.com/p/B3JJpfxnVMt/?" target="_blank">Cleanup post 13</a>
+      <a class="link-button" href="https://www.instagram.com/p/B3W9eN7nK3G/?" target="_blank">Cleanup post 14</a>
+      <a class="link-button" href="https://www.instagram.com/p/B3pKZX7Hveb/?" target="_blank">Cleanup post 15</a>
+      <a class="link-button" href="https://www.instagram.com/p/B4AZMFtnTcn/?" target="_blank">Cleanup post 16</a>
+      <a class="link-button" href="https://www.instagram.com/p/B4kcTYBH9EI/?" target="_blank">Cleanup post 17</a>
+      <a class="link-button" href="https://www.instagram.com/p/B4urbGJnmks/?" target="_blank">Cleanup post 18</a>
+      <a class="link-button" href="https://www.instagram.com/p/B5Fz2MWnkf-/?" target="_blank">Cleanup post 19</a>
+      <a class="link-button" href="https://www.instagram.com/p/B5UPZcDHT6E/?" target="_blank">Cleanup post 20</a>
+      <a class="link-button" href="https://www.instagram.com/p/B544J9TnmOE/?" target="_blank">Cleanup post 21</a>
+      <a class="link-button" href="https://www.instagram.com/p/B6sZqaRH3fJ/?" target="_blank">Cleanup post 22</a>
+      <a class="link-button" href="https://www.instagram.com/p/B7Bgdr0HXsq/?" target="_blank">Cleanup post 23</a>
+      <a class="link-button" href="https://www.instagram.com/p/B7QLTBQnDV9/?" target="_blank">Cleanup post 24</a>
+      <a class="link-button" href="https://www.instagram.com/p/B7lbXYCn6a2/?" target="_blank">Cleanup post 25</a>
+      <a class="link-button" href="https://www.instagram.com/p/B71CTK7nNwO/?" target="_blank">Cleanup post 26</a>
+      <a class="link-button" href="https://www.instagram.com/p/B8F73nkHcvj/?" target="_blank">Cleanup post 27</a>
+      <a class="link-button" href="https://www.instagram.com/p/B8ZI1pvHTtX/?" target="_blank">Cleanup post 28</a>
+      <a class="link-button" href="https://www.instagram.com/p/B8tCx6EnTZ1/?" target="_blank">Cleanup post 29</a>
+      <a class="link-button" href="https://www.instagram.com/p/B9Q008JHTyj/?" target="_blank">Cleanup post 30</a>
+      <a class="link-button" href="https://www.instagram.com/p/B9hCWU5HKuP/?" target="_blank">Cleanup post 31</a>
+      <a class="link-button" href="https://www.instagram.com/p/B96rcqSH8RE/?" target="_blank">Cleanup post 32</a>
+      <a class="link-button" href="https://www.instagram.com/p/CKHGlXZlgAf/?" target="_blank">Cleanup post 33</a>
+      <a class="link-button" href="https://www.instagram.com/p/CKeRrsOo9-q/?" target="_blank">Cleanup post 34</a>
+      <a class="link-button" href="https://www.instagram.com/p/CKl_9XXJO3y/?" target="_blank">Cleanup post 35</a>
+      <a class="link-button" href="https://www.instagram.com/p/CK6mWsOHYmi/?" target="_blank">Cleanup post 36</a>
+      <a class="link-button" href="https://www.instagram.com/p/CLeijAkJ1Zx/?" target="_blank">Cleanup post 37</a>
+      <a class="link-button" href="https://www.instagram.com/p/CMCqQMEoYpd/?" target="_blank">Cleanup post 38</a>
+      <a class="link-button" href="https://www.instagram.com/p/CMNBoiYlPNB/?" target="_blank">Cleanup post 39</a>
+      <a class="link-button" href="https://www.instagram.com/p/CMWS_YKl_SF/?" target="_blank">Cleanup post 40</a>
+      <a class="link-button" href="https://www.instagram.com/p/CMZ7DfwlRvJ/?" target="_blank">Cleanup post 41</a>
+      <a class="link-button" href="https://www.instagram.com/p/CM3-9AMINYr/?" target="_blank">Cleanup post 42</a>
+      <a class="link-button" href="https://www.instagram.com/p/CNMjpmvpHBJ/?" target="_blank">Cleanup post 43</a>
+      <a class="link-button" href="https://www.instagram.com/p/CNXMOqVoyRa/?" target="_blank">Cleanup post 44</a>
+      <a class="link-button" href="https://www.instagram.com/p/CSJNWNzjqVv/?" target="_blank">Cleanup post 45</a>
+      <a class="link-button" href="https://www.instagram.com/p/CSi38epJlm9/?" target="_blank">Cleanup post 46</a>
+      <a class="link-button" href="https://www.instagram.com/p/CSljLBPJTBr/?" target="_blank">Cleanup post 47</a>
+      <a class="link-button" href="https://www.instagram.com/p/CS1e4TuDXmx/?" target="_blank">Cleanup post 48</a>
+      <a class="link-button" href="https://www.instagram.com/reel/CS3QJ8MJCBx/?" target="_blank">Cleanup post 49</a>
+      <a class="link-button" href="https://www.instagram.com/reel/CS3RCzoJxSx/?" target="_blank">Cleanup post 50</a>
+      <a class="link-button" href="https://www.instagram.com/reel/CS3SBsep-Ed/?" target="_blank">Cleanup post 51</a>
+      <a class="link-button" href="https://www.instagram.com/p/CS9cksapGL4/?" target="_blank">Cleanup post 52</a>
+      <a class="link-button" href="https://www.instagram.com/reel/CTJesVjD4XP/?" target="_blank">Cleanup post 53</a>
+      <a class="link-button" href="https://www.instagram.com/p/CTSMZpcIAQs/?" target="_blank">Cleanup post 54</a>
+      <a class="link-button" href="https://www.instagram.com/reel/CTb8nOpn8Zh/?" target="_blank">Cleanup post 55</a>
+      <a class="link-button" href="https://www.instagram.com/p/CUNaCQ2rvYA/?" target="_blank">Cleanup post 56</a>
+    </div>
+  </div>
 
-        var options = {
-          fullWidth: true,
-          indicators: true
-        };
-        var elems = document.querySelector('.carousel.no-autoinit');
-        console.log(elems)
-        var instances = M.Carousel.init(elems, options);
-      })
-      document.getElementById('tweet-quote').setAttribute('href','https://twitter.com/intent/tweet/?text='+ "👋🏽 @LtGovDelhi,%0A%0A "+emailSent+" Delhiites have written to you to %23SaveSanjayVan from commercialization.%0A%0AWe do not need restaurants, tours, or conferences inside the reserve forest.%0A%0APlease don't let commercial interests convert %23SanjayVan into a park.");
 
-    </script>
+  <!-- Scroll to top button -->
+  <button id="scrollTopBtn" title="Go to top" type="button">
+    <img src="assets/arrow-up-white.svg" alt="Scroll to top">
+  </button>
+
+  <footer>
+    <div class="footer-content-wrapper">
+      <div class="footer-text">
+        <span>
+          <a href="https://thereisnoearthb.com/" target="_blank" rel="noopener noreferrer">This open-source website has
+            been
+            created by There Is No Earth B for the Save Sanjay Van movement which controls the content
+            ✊</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- swiper.js initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new Swiper('.swiper', {
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        touchEventsTarget: 'container',
+        a11y: {
+          enabled: true
+        }
+      });
+    });
+  </script>
+
+  <!-- Scroll to top script -->
+  <script>
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function () { scrollFunction() };
+
+    // Button appears only after scrolling down by 20px
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    }
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
 </body>
-
-<!-- Compiled and minified JavaScript -->
-<script src="https://thereisnoearthb.com/js/materialize.js"></script>
 
 </html>
